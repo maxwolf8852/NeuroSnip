@@ -55,5 +55,13 @@ def serve():
     server.wait_for_termination()
 
 
+def test_server():
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=4))
+    pb2_grpc.add_ServGServicer_to_server(ServerHandler(), server)
+    server.add_insecure_port('[::]:50051')
+    server.start()
+    server.stop(3).wait()
+
+
 if __name__ == '__main__':
     serve()
