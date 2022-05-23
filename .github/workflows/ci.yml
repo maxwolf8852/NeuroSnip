@@ -26,3 +26,11 @@ jobs:
       # Runs a single command using the runners shell
       - name: ls_directory
         run: DIR
+        
+      - name: install packages
+        run: cd translator/ && pip3 install -r requrements.txt
+        
+      - name: build translator
+        run: python3 main.py
+  
+      
