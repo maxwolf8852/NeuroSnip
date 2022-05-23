@@ -30,7 +30,7 @@ jobs:
       - name: install packages
         run: cd translator/ && pip3 install -r requirements.txt
         
-      - name: build translator
-        run: python3 main.py
+      - name: test translator
+        run: cd translator/ && pytest main.py
   
       
