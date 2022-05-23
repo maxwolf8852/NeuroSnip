@@ -27,4 +27,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: ls_directory
-        run: DIR
+        run: |
+          DIR
+          qmake.exe --version
