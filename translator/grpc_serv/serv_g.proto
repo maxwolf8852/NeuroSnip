@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package serv_g;
+
+service ServG{
+  rpc GetTranslate(TargetStr) returns (TranslatedString) {}
+}
+
+message TargetStr{
+  string text = 1;
+    bool exit = 5;
+}
+
+message  TranslatedString{
+  bool  success = 2;
+  optional string translated = 3;
+  optional uint32  time = 4;
+}
