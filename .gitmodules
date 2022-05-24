@@ -1,0 +1,3 @@
+[submodule "ColorConfidence"]
+	path = ColorConfidence
+	url = https://github.com/maxwolf8852/ColorConfidence.git
