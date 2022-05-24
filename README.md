@@ -5,10 +5,10 @@ Windows snipping tool written on C++, which allows you to recognize and translat
 
 ![alt text](https://github.com/maxwolf8852/NeuroSnip/blob/main/1.PNG?raw=true)
 
-1. [Install](https://https://github.com/maxwolf8852/NeuroSnip#install)
-    1. [Snipper](https://https://github.com/maxwolf8852/NeuroSnip#snipper)
-    2. [Translator](https://https://github.com/maxwolf8852/NeuroSnip#translator)
-    3. [Releases](https://https://github.com/maxwolf8852/NeuroSnip#releases)
+1. [Install](https://github.com/maxwolf8852/NeuroSnip#install)
+    1. [Snipper](https://github.com/maxwolf8852/NeuroSnip#snipper)
+    2. [Translator](https://github.com/maxwolf8852/NeuroSnip#translator)
+    3. [Releases](https://github.com/maxwolf8852/NeuroSnip#prebuild-binaries)
 
 
 # Install
