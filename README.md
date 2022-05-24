@@ -7,8 +7,8 @@ Windows snipping tool written on C++, which allows you to recognize and translat
 
 1. [Install](https://https://github.com/maxwolf8852/NeuroSnip#install)
     1. [Snipper](https://https://github.com/maxwolf8852/NeuroSnip#snipper)
-    2. [Translator](https://github.com/ijl/orjson#translator)
-    3. [Releases](https://github.com/ijl/orjson#releases)
+    2. [Translator](https://https://github.com/maxwolf8852/NeuroSnip#translator)
+    3. [Releases](https://https://github.com/maxwolf8852/NeuroSnip#releases)
 
 
 # Install
