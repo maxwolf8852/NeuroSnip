@@ -24,6 +24,9 @@ Snipper is c++ project that allows:
 
 Installation steps:
 + Download or compile tesseract and opencv (use vcpkg for easiest installing)
++ generate grpc cxx and h files with your protoc
+    + protoc -I ./ --grpc_out=. --plugin=protoc-gen-grpc=<path>\grpc_cpp_plugin.exe ./cli_g.proto
+    + protoc -I ./ --cpp_out=. ./cli_g.proto
 + compile program with Qt
 
 ## Translator
