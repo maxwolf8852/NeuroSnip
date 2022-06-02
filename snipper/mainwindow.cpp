@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    this->setWindowIcon(QIcon(":/Nico.png"));
+
     maxwolf8852::setBounds(30.0f, 100.0f);
     maxwolf8852::setValue(180);
 

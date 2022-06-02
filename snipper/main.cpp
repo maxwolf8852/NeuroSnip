@@ -1,23 +1,8 @@
 #include "mainwindow.h"
 #include <QApplication>
+#include <windows.h>
 #include <opencv2/dnn.hpp>
-
-
-template <typename T>
-std::ostream& operator<<(std::ostream& os, const std::vector<T>& v)
-{
-    os << "[";
-    for (int i = 0; i < v.size(); ++i)
-    {
-        os << v[i];
-        if (i != v.size() - 1)
-        {
-            os << ", ";
-        }
-    }
-    os << "]";
-    return os;
-}
+#include <QtZlib/zlib.h>
 
 int main(int argc, char *argv[])
 {

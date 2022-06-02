@@ -24,11 +24,10 @@ public:
     ~Recognizer();
 
 private:
+    bool initialized = 0;
+
+
     tesseract::TessBaseAPI *api = nullptr;
-
-    //cv::dnn::TextDetectionModel_DB *detect = nullptr;
-
-    //cv::dnn::TextRecognitionModel *rec = nullptr;
 
     std::unique_ptr<cv::dnn::Net> tf_net = nullptr;
     std::vector<std::string> outNames;
@@ -38,6 +37,8 @@ private:
 
     void recognizeBackend(const cv::Mat &img,std::vector<std::pair<QString, float>>&);
     void extractBoxes(cv::Mat &scores, cv::Mat& geometry, std::vector<cv::RotatedRect>& boxes, std::vector<float> &confidences);
+
+    void initialize();
 
 };
 

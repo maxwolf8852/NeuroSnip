@@ -6,26 +6,14 @@
 
 Recognizer::Recognizer()
 {
-    api = new tesseract::TessBaseAPI();
-
-    if (api->Init("data/", "eng", tesseract::OcrEngineMode::OEM_DEFAULT)) {
-        fprintf(stderr, "Could not initialize tesseract.\n");
-        exit(1);
-    }
-    api->SetPageSegMode(tesseract::PSM_SINGLE_LINE);
-
-
-    setDetector();
-
-
-
-
 }
 
 Recognizer::~Recognizer()
 {
-    api->End();
-    delete api;
+    if (initialized){
+        api->End();
+        delete api;
+    }
 }
 
 void Recognizer::setRecognizer()
@@ -109,6 +97,23 @@ void Recognizer::extractBoxes(cv::Mat &scores, cv::Mat &geometry, std::vector<cv
     }
 }
 
+void Recognizer::initialize()
+{
+    if (!initialized){
+        initialized = 1;
+
+        api = new tesseract::TessBaseAPI();
+
+        if (api->Init("data/", "eng", tesseract::OcrEngineMode::OEM_DEFAULT)) {
+            fprintf(stderr, "Could not initialize tesseract.\n");
+            exit(1);
+        }
+        api->SetPageSegMode(tesseract::PSM_SINGLE_LINE);
+
+        setDetector();
+
+    }
+}
 
 static cv::Mat qImage2Mat(QImage image){
     return cv::Mat(image.height(),image.width(),CV_8UC3,(void *)image.constBits(),image.bytesPerLine()).clone();
@@ -116,6 +121,8 @@ static cv::Mat qImage2Mat(QImage image){
 
 void Recognizer::recognize(const QPixmap& pix)
 {
+
+    initialize();
 
     std::vector<std::pair<QString, float>> outText;
     /*api->SetImage(qImage2PIX(pix.toImage()));
