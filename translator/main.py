@@ -4,6 +4,9 @@ import grpc
 import grpc_serv.serv_g_pb2_grpc as pb2_grpc
 import grpc_serv.serv_g_pb2 as pb2
 from concurrent import futures
+import nltk
+from nltk import tokenize
+from termcolor import colored
 
 
 class ServerHandler(pb2_grpc.ServG):
@@ -33,11 +36,24 @@ class ServerHandler(pb2_grpc.ServG):
         message = request.text
         is_exit = request.exit
         if is_exit:
-            exit(1)
-        print("me", message)
-        result = {'success': 0}
+            exit(1)      
+
         try:
-            _, decoded, time_el = self.translate(message)
+            messages =tokenize.sent_tokenize(message)
+        except:
+            print("error! ")
+            messages = []
+
+        print("messages: ", messages)
+
+        result = {'success': 0}
+        decoded = ""
+        time_el = 0
+        try:
+            for mess in messages:
+                _, decoded_part, time_el_part = self.translate(mess)
+                decoded += decoded_part + " "
+                time_el += time_el_part
         except RuntimeError:
             return pb2.TranslatedString(**result)
 
@@ -47,11 +63,12 @@ class ServerHandler(pb2_grpc.ServG):
 
 
 def serve():
+    print (colored("Loading...", "yellow", attrs=['blink', 'bold']))
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=4))
     pb2_grpc.add_ServGServicer_to_server(ServerHandler(), server)
     server.add_insecure_port('[::]:50051')
     server.start()
-    print('Server started')
+    print (colored("Server started", "green", attrs=['bold']))
     server.wait_for_termination()
 
 
@@ -64,4 +81,5 @@ def test_server():
 
 
 if __name__ == '__main__':
+    nltk.download('punkt')
     serve()
