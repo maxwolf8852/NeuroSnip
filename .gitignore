@@ -45,5 +45,5 @@ snipper/.qtc_clangd
 snipper/Makefile
 snipper/Makefile.Debug
 snipper/Makefile.Release
-snipper/neurosnip_plugin_import.cpp\
+snipper/neurosnip_plugin_import.cpp
 translator/test-trans
