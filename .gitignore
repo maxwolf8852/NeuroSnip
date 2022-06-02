@@ -33,3 +33,17 @@
 
 __pycache__/
 translator/test-trans
+
+release/
+debug/
+
+*.user
+*.stash
+*.7z
+
+snipper/NeuroSnip
+snipper/.qtc_clangd
+snipper/Makefile
+snipper/Makefile.Debug
+snipper/Makefile.Release
+snipper/neurosnip_plugin_import.cpp
