@@ -32,6 +32,7 @@
 *.app
 
 __pycache__/
+translator/test-trans
 
 release/
 debug/
@@ -46,4 +47,3 @@ snipper/Makefile
 snipper/Makefile.Debug
 snipper/Makefile.Release
 snipper/neurosnip_plugin_import.cpp
-translator/test-trans
